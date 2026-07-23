@@ -206,8 +206,7 @@
   .footer-top p { font-size: 0.92rem; line-height: 1.6; color: var(--gray); max-width: 360px; }
 
   form.contact { display: flex; flex-wrap: wrap; gap: 14px; }
-  form.contact input,
-  form.contact textarea {
+  form.contact input {
     background: transparent;
     border: 1px solid #446150;
     color: var(--cream);
@@ -216,8 +215,6 @@
     font-size: 0.92rem;
     flex: 1 1 220px;
   }
-  form.contact textarea { flex-basis: 100%; min-height: 90px; resize: vertical; }
-  form.contact label.checkbox { flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--gray); }
   form.contact button {
     background: var(--gold);
     color: var(--ink);
@@ -317,17 +314,11 @@
     <div>
       <div class="eyebrow">Stay Connected</div>
       <h3 class="serif">Join the newsletter</h3>
-      <p>Subscribe for book news, behind-the-scenes notes, and stories that never made it to print.</p>
+      <p>No spam, ever. Just an email when a new book releases.</p>
     </div>
 
     <form class="contact" id="contactForm">
-      <input type="text" name="name" placeholder="Your First Name" />
       <input type="email" name="email" placeholder="Your Email Address" required />
-      <textarea name="message" placeholder="Message (optional)"></textarea>
-      <label class="checkbox">
-        <input type="checkbox" name="subscribe" checked />
-        Send me release updates
-      </label>
       <button type="submit">Subscribe</button>
       <div class="form-note" id="formNote"></div>
     </form>
@@ -348,20 +339,20 @@
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
 
+  // TODO: replace with the deployed Google Apps Script Web App URL
+  const SIGNUP_ENDPOINT = 'PASTE_APPS_SCRIPT_URL_HERE';
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = form.name.value;
     const email = form.email.value;
-    const message = form.message.value;
-    const subscribe = form.subscribe.checked;
 
     note.textContent = 'Sending...';
 
     try {
-      const resp = await fetch('https://alma-hollis-contact-api.vercel.app/api/contact', {
+      const resp = await fetch(SIGNUP_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, subscribe }),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ email }),
       });
       if (!resp.ok) throw new Error('Request failed');
       note.textContent = "Thank you. You're on the list.";
