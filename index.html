@@ -97,16 +97,17 @@
   }
 
   nav.top {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
     padding: 20px 5vw;
     background: var(--ink);
     color: var(--cream);
   }
-  nav.top .brand { display: flex; align-items: center; }
-  nav.top .nav-logo { height: 56px; width: auto; display: block; }
-  nav.top ul { display: flex; gap: 34px; list-style: none; }
+  nav.top .spacer { grid-column: 1; }
+  nav.top .brand { grid-column: 2; display: flex; align-items: center; justify-self: center; }
+  nav.top .nav-logo { width: min(70vw, 600px); height: auto; display: block; }
+  nav.top ul { grid-column: 3; justify-self: end; display: flex; gap: 34px; list-style: none; }
   nav.top ul li a {
     font-size: 0.76rem;
     letter-spacing: 0.16em;
@@ -215,8 +216,9 @@
   .footer-bottom { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; font-size: 0.78rem; color: var(--gray); }
 
   @media (max-width: 900px) {
-    nav.top { padding: 20px 5vw; }
-    nav.top ul { gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    nav.top { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 20px 5vw; }
+    nav.top .spacer { display: none; }
+    nav.top ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
     nav.top ul li a { font-size: 0.66rem; letter-spacing: 0.08em; padding: 12px 2px; }
     .footer-top { grid-template-columns: 1fr; }
   }
@@ -225,6 +227,7 @@
 <body>
 
 <nav class="top">
+  <div class="spacer"></div>
   <div class="brand">
     <img class="nav-logo" src="logo.png" alt="Alma Hollis" />
   </div>
