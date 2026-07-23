@@ -98,12 +98,14 @@
 
   nav.top {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px 5vw;
+    padding: 20px 5vw;
     background: var(--ink);
     color: var(--cream);
   }
+  nav.top .brand { display: flex; align-items: center; }
+  nav.top .nav-logo { height: 56px; width: auto; display: block; }
   nav.top ul { display: flex; gap: 34px; list-style: none; }
   nav.top ul li a {
     font-size: 0.76rem;
@@ -115,49 +117,6 @@
   }
   nav.top ul li a.active,
   nav.top ul li a:hover { border-bottom-color: var(--gold); }
-
-  /* ---- Hero: centered logo + tagline + CTA ---- */
-  header.hero {
-    position: relative;
-    min-height: 0;
-    padding: 20px 6vw 15px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: center;
-    color: var(--cream);
-    background: var(--ink);
-    overflow: hidden;
-  }
-
-  header.hero .copy { position: relative; z-index: 2; max-width: 640px; padding: 0 6vw; }
-  header.hero .hero-logo { width: min(70vw, 600px); margin: 0 auto; display: block; }
-  header.hero p.bio {
-    font-size: 0.98rem;
-    line-height: 1.75;
-    color: #D8D2E4;
-    max-width: 500px;
-    margin: 10px auto 22px;
-  }
-  header.hero p.tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    line-height: 1.5;
-    color: var(--gold);
-    margin: 8px 0 30px;
-  }
-  header.hero .cta {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 14px 34px;
-    font-size: 0.76rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    transition: background 0.2s, color 0.2s;
-  }
-  header.hero .cta:hover { background: var(--gold); color: var(--ink); }
 
   /* ---- Books: asymmetric collage, one feature + 2x3 grid, edge-to-edge ---- */
   section.books { padding: 50px 6vw 110px; max-width: 1200px; margin: 0 auto; }
@@ -266,24 +225,22 @@
 <body>
 
 <nav class="top">
+  <div class="brand">
+    <img class="nav-logo" src="logo.png" alt="Alma Hollis" />
+  </div>
   <ul>
     <li><a href="#books">Collection</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<header class="hero" id="top">
-  <div class="copy">
-    <h1 class="sr-only">Alma Hollis — Author of Emotionally Immersive Fiction</h1>
-    <p class="sr-only">
-      Alma Hollis writes emotionally immersive novels about the invisible ways
-      love shapes us, exploring grief not only in the loss of people, but the
-      loss of futures, identities, and the versions of ourselves we leave
-      behind. Explore the full collection of Alma Hollis novels below.
-    </p>
-    <img class="hero-logo" src="logo.png" alt="Alma Hollis" />
-  </div>
-</header>
+<h1 class="sr-only">Alma Hollis — Author of Emotionally Immersive Fiction</h1>
+<p class="sr-only">
+  Alma Hollis writes emotionally immersive novels about the invisible ways
+  love shapes us, exploring grief not only in the loss of people, but the
+  loss of futures, identities, and the versions of ourselves we leave
+  behind. Explore the full collection of Alma Hollis novels below.
+</p>
 
 <section class="books" id="books">
   <h2 class="sr-only">The Alma Hollis Book Collection</h2>
