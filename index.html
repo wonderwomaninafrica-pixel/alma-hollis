@@ -79,7 +79,8 @@
   /* ---- Hero: centered logo + tagline + CTA ---- */
   header.hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 0;
+    padding: 50px 6vw 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,7 +91,7 @@
   }
 
   header.hero .copy { position: relative; z-index: 2; max-width: 640px; padding: 0 6vw; }
-  header.hero .hero-logo { width: min(80vw, 560px); margin: 0 auto; }
+  header.hero .hero-logo { width: min(60vw, 360px); margin: 0 auto; display: block; }
   header.hero p.bio {
     font-size: 0.98rem;
     line-height: 1.75;
@@ -119,7 +120,7 @@
   header.hero .cta:hover { background: var(--gold); color: var(--ink); }
 
   /* ---- Books: asymmetric collage, one feature + 2x3 grid, edge-to-edge ---- */
-  section.books { padding: 100px 6vw 110px; max-width: 1200px; margin: 0 auto; }
+  section.books { padding: 50px 6vw 110px; max-width: 1200px; margin: 0 auto; }
   section.books .head { margin-bottom: 44px; text-align: center; }
   section.books h2 {
     font-family: 'Cormorant Garamond', serif;
