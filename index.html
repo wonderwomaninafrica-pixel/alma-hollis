@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Alma Hollis | Emotionally Immersive Fiction</title>
-<meta name="description" content="Alma Hollis writes emotionally immersive novels about the invisible ways love shapes us. New titles coming soon." />
+<title>Alma Hollis | Stories That Live in the Quiet</title>
+<meta name="description" content="Alma Hollis writes emotionally immersive novels about the invisible ways love shapes us. Dark, emotional, and deeply human fiction." />
 <meta name="author" content="Alma Hollis" />
 <link rel="canonical" href="https://www.almahollis.com/" />
 <link rel="icon" type="image/png" href="favicon.png" />
-<meta name="theme-color" content="#F3EFE7" />
+<meta name="theme-color" content="#150E1C" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Alma Hollis | Emotionally Immersive Fiction" />
+<meta property="og:title" content="Alma Hollis | Stories That Live in the Quiet" />
 <meta property="og:description" content="Love doesn't end when life changes. It changes with it." />
 <meta property="og:url" content="https://www.almahollis.com/" />
 <meta property="og:image" content="https://www.almahollis.com/og-image.png" />
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Alma Hollis | Emotionally Immersive Fiction" />
+<meta name="twitter:title" content="Alma Hollis | Stories That Live in the Quiet" />
 <meta name="twitter:description" content="Love doesn't end when life changes. It changes with it." />
 <meta name="twitter:image" content="https://www.almahollis.com/og-image.png" />
 
@@ -27,30 +27,22 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 
   :root {
+    --ink: #150E1C;
+    --plum: #2E1E3A;
+    --plum-light: #3D2A4C;
     --cream: #F3EFE7;
-    --navy: #1A263A;
     --gold: #C6A46A;
-    --gray: #6E6E6E;
+    --gray: #9B92A8;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--cream);
-    color: var(--navy);
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-  }
-
+  body { font-family: 'Inter', sans-serif; font-weight: 300; background: var(--cream); color: var(--ink); }
   .serif { font-family: 'Cormorant Garamond', serif; }
-  a { color: inherit; }
+  a { color: inherit; text-decoration: none; }
   img { display: block; max-width: 100%; }
 
   .eyebrow {
-    font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -58,201 +50,346 @@
   }
 
   nav.top {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 50;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 6vw;
-    background: linear-gradient(to bottom, rgba(243,239,231,0.95), rgba(243,239,231,0));
+    padding: 26px 5vw;
+    background: var(--ink);
+    color: var(--cream);
   }
-  nav.top .name {
+  nav.top .brand { display: flex; align-items: center; gap: 14px; }
+  nav.top .mark { width: 28px; height: 28px; flex-shrink: 0; }
+  nav.top .name-block .name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    letter-spacing: 0.18em;
+    font-size: 1.4rem;
+    letter-spacing: 0.14em;
   }
-  nav.top a.cta {
-    font-size: 0.75rem;
+  nav.top .name-block .tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  nav.top ul { display: flex; gap: 34px; list-style: none; }
+  nav.top ul li a {
+    font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    border: 1px solid var(--navy);
-    padding: 10px 22px;
-    text-decoration: none;
+    color: var(--cream);
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
   }
+  nav.top ul li a.active,
+  nav.top ul li a:hover { border-bottom-color: var(--gold); }
+  nav.top .icons { display: flex; gap: 16px; }
+  nav.top .icons a { opacity: 0.85; }
 
   header.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 6vw;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 640px;
+    background: var(--ink);
+    color: var(--cream);
+    overflow: hidden;
   }
+  header.hero .copy { display: flex; flex-direction: column; justify-content: center; padding: 0 6vw; z-index: 2; }
   header.hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: clamp(2.6rem, 7vw, 5rem);
-    letter-spacing: 0.06em;
-    margin: 18px 0 26px;
+    font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+    line-height: 1.15;
+    margin: 20px 0 22px;
   }
-  header.hero p.tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    color: var(--gray);
-    max-width: 640px;
+  header.hero h1 em { color: var(--gold); font-style: italic; }
+  header.hero .rule { display: flex; align-items: center; gap: 10px; margin: 6px 0 26px; }
+  header.hero .rule span.line { width: 60px; height: 1px; background: var(--gold); }
+  header.hero p.lede { max-width: 420px; font-size: 1rem; line-height: 1.7; color: #D8D2E4; margin-bottom: 32px; }
+  header.hero .cta {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--plum-light);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 14px 30px;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
+  header.hero .cta:hover { background: var(--gold); color: var(--ink); }
+  header.hero .art { position: relative; background: radial-gradient(circle at 60% 45%, #4a3560 0%, var(--plum) 55%, var(--ink) 100%); }
+  header.hero .art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-  section {
-    padding: 110px 6vw;
-    max-width: 900px;
+  section.about {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 90px 6vw;
+    max-width: 1200px;
     margin: 0 auto;
   }
-  section h2 {
+  section.about .visual {
+    aspect-ratio: 4 / 5;
+    border-radius: 2px;
+    background: linear-gradient(155deg, var(--plum) 0%, var(--ink) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  section.about .visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  section.about h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    margin-bottom: 28px;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin: 14px 0 18px;
   }
-  section p {
-    font-size: 1.02rem;
-    line-height: 1.75;
-    color: #33405a;
-    max-width: 640px;
-  }
-  section p + p { margin-top: 18px; }
-
-  .divider {
-    width: 48px;
-    height: 1px;
-    background: var(--gold);
-    margin: 36px auto;
+  section.about p { font-size: 1rem; line-height: 1.75; color: #3a2f4a; max-width: 480px; }
+  section.about p + p { margin-top: 16px; }
+  section.about .more {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--plum);
+    border-bottom: 1px solid var(--gold);
   }
 
-  .coming-soon {
-    text-align: center;
+  section.books { padding: 20px 6vw 100px; max-width: 1200px; margin: 0 auto; }
+  section.books .head { margin-bottom: 34px; }
+  section.books h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-top: 10px;
   }
-  .coming-soon .eyebrow { margin-bottom: 14px; }
-  .coming-soon p {
-    margin: 0 auto;
+  .book-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .book-card img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    box-shadow: 0 18px 30px -14px rgba(21, 14, 28, 0.45);
+  }
+  .book-card .title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; margin-top: 16px; line-height: 1.3; }
+  .book-card .view {
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-top: 6px;
+    display: inline-block;
   }
 
-  form.contact {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 480px;
-    margin-top: 20px;
+  footer.site { background: var(--ink); color: var(--cream); padding: 70px 6vw 30px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.1fr 1.4fr 0.7fr;
+    gap: 40px;
+    align-items: start;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #3a2f4a;
   }
+  .footer-top h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.5rem; margin: 10px 0 12px; }
+  .footer-top p { font-size: 0.92rem; line-height: 1.6; color: var(--gray); max-width: 360px; }
+
+  form.contact { display: flex; flex-wrap: wrap; gap: 14px; }
   form.contact input,
   form.contact textarea {
     background: transparent;
-    border: none;
-    border-bottom: 1px solid #b9b2a2;
-    padding: 12px 4px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    color: var(--navy);
-  }
-  form.contact input:focus,
-  form.contact textarea:focus { outline: none; border-bottom-color: var(--navy); }
-  form.contact textarea { resize: vertical; min-height: 100px; }
-  form.contact label.checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: var(--gray);
-  }
-  form.contact button {
-    align-self: flex-start;
-    margin-top: 6px;
-    background: var(--navy);
+    border: 1px solid #4a3d5c;
     color: var(--cream);
+    padding: 13px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    flex: 1 1 220px;
+  }
+  form.contact textarea { flex-basis: 100%; min-height: 90px; resize: vertical; }
+  form.contact label.checkbox { flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--gray); }
+  form.contact button {
+    background: var(--gold);
+    color: var(--ink);
     border: none;
     padding: 13px 30px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     cursor: pointer;
   }
-  form.contact button:hover { background: #101a29; }
-  .form-note {
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin-top: 14px;
-    min-height: 1.2em;
-  }
+  form.contact button:hover { background: #d8b87e; }
+  .form-note { flex-basis: 100%; font-size: 0.82rem; color: var(--gray); min-height: 1.2em; }
 
-  footer {
-    text-align: center;
-    padding: 50px 6vw 60px;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    color: var(--gray);
+  .footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .footer-brand .signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.6rem; color: var(--gold); }
+  .footer-brand .icons { display: flex; gap: 14px; }
+
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 24px; font-size: 0.78rem; color: var(--gray); }
+  .footer-bottom .links { display: flex; gap: 22px; }
+
+  @media (max-width: 900px) {
+    nav.top ul { display: none; }
+    header.hero { grid-template-columns: 1fr; }
+    header.hero .art { min-height: 280px; }
+    section.about { grid-template-columns: 1fr; }
+    .book-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
 <nav class="top">
-  <div class="name serif">ALMA HOLLIS</div>
-  <a class="cta" href="#contact">Get in touch</a>
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="3" fill="#C6A46A"/>
+      <g stroke="#C6A46A" stroke-width="1.4">
+        <line x1="20" y1="20" x2="20" y2="6"/>
+        <line x1="20" y1="20" x2="20" y2="34"/>
+        <line x1="20" y1="20" x2="6" y2="20"/>
+        <line x1="20" y1="20" x2="34" y2="20"/>
+        <line x1="20" y1="20" x2="10" y2="10"/>
+        <line x1="20" y1="20" x2="30" y2="10"/>
+        <line x1="20" y1="20" x2="10" y2="30"/>
+        <line x1="20" y1="20" x2="30" y2="30"/>
+      </g>
+    </svg>
+    <div class="name-block">
+      <div class="name serif">ALMA HOLLIS</div>
+      <div class="tag">Stories that stay with you.</div>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#top" class="active">Home</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="icons" aria-hidden="true">
+    <a href="#contact">&#9993;</a>
+  </div>
 </nav>
 
-<header class="hero">
-  <div class="eyebrow">Emotionally Immersive Fiction</div>
-  <h1 class="serif">Alma Hollis</h1>
-  <p class="tagline">Love doesn't end when life changes. It changes with it.</p>
+<header class="hero" id="top">
+  <div class="copy">
+    <div class="eyebrow">Emotionally Immersive Fiction</div>
+    <h1 class="serif">Stories that<br/>live in the <em>quiet</em>.</h1>
+    <div class="rule"><span class="line"></span></div>
+    <p class="lede">
+      Dark, emotional, and deeply human fiction about the things we don't say,
+      and the people who change everything.
+    </p>
+    <a class="cta" href="#books">Explore the Books</a>
+  </div>
+  <div class="art">
+    <svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMid slice">
+      <g stroke="#C6A46A" stroke-width="1" opacity="0.55" fill="none">
+        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(0 300 320)"/>
+        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(30 300 320)"/>
+        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(60 300 320)"/>
+        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(90 300 320)"/>
+        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(120 300 320)"/>
+        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(150 300 320)"/>
+      </g>
+      <circle cx="300" cy="320" r="16" fill="#C6A46A" opacity="0.85"/>
+      <line x1="300" y1="336" x2="300" y2="560" stroke="#8A7A9C" stroke-width="2" opacity="0.5"/>
+    </svg>
+  </div>
 </header>
 
-<section class="coming-soon">
-  <div class="eyebrow">New Titles</div>
-  <h2 class="serif">Coming Soon</h2>
-  <div class="divider"></div>
-  <p>
-    Alma Hollis writes emotionally immersive novels about the invisible ways
-    love shapes us. Her stories explore grief in all its forms, not only the
-    loss of people, but the loss of futures, identities, and the versions of
-    ourselves we leave behind.
-  </p>
+<section class="about" id="about">
+  <div class="visual">
+    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+      <g stroke="#C6A46A" stroke-width="1" opacity="0.5" fill="none">
+        <ellipse cx="200" cy="230" rx="90" ry="26"/>
+        <ellipse cx="200" cy="230" rx="90" ry="26" transform="rotate(45 200 230)"/>
+        <ellipse cx="200" cy="230" rx="90" ry="26" transform="rotate(90 200 230)"/>
+        <ellipse cx="200" cy="230" rx="90" ry="26" transform="rotate(135 200 230)"/>
+      </g>
+      <circle cx="200" cy="230" r="12" fill="#C6A46A" opacity="0.8"/>
+      <line x1="200" y1="242" x2="200" y2="420" stroke="#8A7A9C" stroke-width="2" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="text">
+    <div class="eyebrow">About Alma</div>
+    <h2 class="serif">I write about what haunts us, and what heals us.</h2>
+    <p>
+      My stories explore love in its rawest forms, family in all its
+      complexity, and the truth we carry long after the page ends.
+    </p>
+    <p>
+      Alma Hollis writes emotionally immersive novels about the invisible
+      ways love shapes us, exploring grief not only in the loss of people,
+      but the loss of futures, identities, and the versions of ourselves we
+      leave behind.
+    </p>
+    <a class="more" href="#contact">Read More About Alma &rarr;</a>
+  </div>
 </section>
 
-<section id="about">
-  <div class="eyebrow">About</div>
-  <h2 class="serif">The Author</h2>
-  <p>
-    With luminous prose, quiet sensuality, and unforgettable emotional
-    intimacy, Alma Hollis's novels remind readers that love is rarely
-    measured by what we keep, but by what we are willing to carry.
-  </p>
-  <p>
-    A reader doesn't simply read an Alma Hollis novel. She feels it.
-  </p>
+<section class="books" id="books">
+  <div class="head">
+    <div class="eyebrow">Featured Books</div>
+    <h2 class="serif">New &amp; Upcoming Titles</h2>
+  </div>
+  <div class="book-grid">
+    <a class="book-card" href="#contact">
+      <img src="covers/the-boy-who-owed-us-nothing.png" alt="The Boy Who Owed Us Nothing, a novel by Alma Hollis" />
+      <div class="title serif">The Boy Who<br/>Owed Us Nothing</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+    <a class="book-card" href="#contact">
+      <img src="covers/a-recipe-for-leaving.png" alt="A Recipe for Leaving, a novel by Alma Hollis" />
+      <div class="title serif">A Recipe<br/>for Leaving</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+    <a class="book-card" href="#contact">
+      <img src="covers/the-year-i-stopped-answering.png" alt="The Year I Stopped Answering, a novel by Alma Hollis" />
+      <div class="title serif">The Year I Stopped<br/>Answering</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+    <a class="book-card" href="#contact">
+      <img src="covers/the-man-who-forgot-the-ocean.png" alt="The Man Who Forgot the Ocean, a novel by Alma Hollis" />
+      <div class="title serif">The Man Who<br/>Forgot the Ocean</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+  </div>
 </section>
 
-<section id="contact">
-  <div class="eyebrow">Stay in Touch</div>
-  <h2 class="serif">Contact &amp; Updates</h2>
-  <p>Send a note, or sign up to hear about new releases first.</p>
+<footer class="site" id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="eyebrow">Stay Connected</div>
+      <h3 class="serif">Join the newsletter</h3>
+      <p>Subscribe for book news, behind-the-scenes notes, and stories that never made it to print.</p>
+    </div>
 
-  <form class="contact" id="contactForm">
-    <input type="text" name="name" placeholder="Name" />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Message" required></textarea>
-    <label class="checkbox">
-      <input type="checkbox" name="subscribe" />
-      Send me release updates
-    </label>
-    <button type="submit">Send</button>
-    <div class="form-note" id="formNote"></div>
-  </form>
-</section>
+    <form class="contact" id="contactForm">
+      <input type="text" name="name" placeholder="Your First Name" />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+      <textarea name="message" placeholder="Message (optional)"></textarea>
+      <label class="checkbox">
+        <input type="checkbox" name="subscribe" checked />
+        Send me release updates
+      </label>
+      <button type="submit">Subscribe</button>
+      <div class="form-note" id="formNote"></div>
+    </form>
 
-<footer>
-  &copy; <span id="year"></span> Alma Hollis. All rights reserved.
+    <div class="footer-brand">
+      <div class="signature">Alma Hollis</div>
+      <div class="icons" aria-hidden="true">
+        <span>&#9993;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>&copy; <span id="year"></span> Alma Hollis. All rights reserved.</div>
+    <div class="links">
+      <a href="#contact">Privacy Policy</a>
+      <a href="#contact">Terms of Use</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -277,7 +414,7 @@
         body: JSON.stringify({ name, email, message, subscribe }),
       });
       if (!resp.ok) throw new Error('Request failed');
-      note.textContent = 'Thank you. Your message has been sent.';
+      note.textContent = 'Thank you. You\'re on the list.';
       form.reset();
     } catch (err) {
       note.textContent = 'Something went wrong. Please try again shortly.';
