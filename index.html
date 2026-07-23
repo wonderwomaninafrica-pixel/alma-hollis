@@ -168,9 +168,9 @@
     border-bottom: 1px solid var(--gold);
   }
 
-  /* ---- Books ---- */
-  section.books { padding: 20px 6vw 110px; max-width: 1180px; margin: 0 auto; }
-  section.books .head { margin-bottom: 40px; text-align: center; }
+  /* ---- Books: asymmetric collage, one feature + 2x3 grid, edge-to-edge ---- */
+  section.books { padding: 20px 0 0; }
+  section.books .head { margin-bottom: 40px; text-align: center; padding: 0 6vw; }
   section.books h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
@@ -180,24 +180,60 @@
   }
   .book-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 34px;
+    grid-template-columns: 1.3fr repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(220px, 32vw));
+    grid-template-areas:
+      "feature s1 s2 s3"
+      "feature s4 s5 s6";
+    gap: 4px;
   }
-  .book-card { display: block; }
-  .book-card .cover-frame {
-    overflow: hidden;
-    box-shadow: 0 22px 34px -16px rgba(10, 14, 20, 0.5);
+  .book-card { position: relative; display: block; overflow: hidden; }
+  .book-card.feature { grid-area: feature; }
+  .book-card.s1 { grid-area: s1; }
+  .book-card.s2 { grid-area: s2; }
+  .book-card.s3 { grid-area: s3; }
+  .book-card.s4 { grid-area: s4; }
+  .book-card.s5 { grid-area: s5; }
+  .book-card.s6 { grid-area: s6; }
+  .book-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
   }
-  .book-card img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; transition: transform 0.4s ease; }
-  .book-card:hover img { transform: scale(1.03); }
-  .book-card .title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; margin-top: 16px; line-height: 1.3; color: var(--navy); }
-  .book-card .view {
+  .book-card:hover img { transform: scale(1.04); }
+  .book-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 14, 20, 0);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.3s ease;
+  }
+  .book-card:hover .overlay { opacity: 1; background: rgba(10, 14, 20, 0.32); }
+  .book-card .overlay span {
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--gray);
-    margin-top: 6px;
-    display: inline-block;
+    color: var(--cream);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .book-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 60vw);
+      grid-template-areas:
+        "feature feature"
+        "s1 s2"
+        "s3 s4"
+        "s5 s6";
+    }
   }
 
   /* ---- Newsletter / Contact footer ---- */
@@ -318,60 +354,39 @@
   </div>
   <div class="book-grid">
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/the-boy-who-owed-us-nothing.png" alt="The Boy Who Owed Us Nothing, a novel by Alma Hollis" />
-      </div>
-      <div class="title serif">The Boy Who Owed Us Nothing</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card feature" href="#contact">
+      <img src="covers/the-boy-who-owed-us-nothing.png" alt="The Boy Who Owed Us Nothing, a novel by Alma Hollis" />
+      <div class="overlay"><span>The Boy Who Owed Us Nothing</span></div>
     </a>
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/a-recipe-for-leaving.png" alt="A Recipe for Leaving, a novel by Alma Hollis" />
-      </div>
-      <div class="title serif">A Recipe for Leaving</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card s1" href="#contact">
+      <img src="covers/a-recipe-for-leaving.png" alt="A Recipe for Leaving, a novel by Alma Hollis" />
+      <div class="overlay"><span>A Recipe for Leaving</span></div>
     </a>
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/the-year-i-stopped-answering.png" alt="The Year I Stopped Answering, a novel by Alma Hollis" />
-      </div>
-      <div class="title serif">The Year I Stopped Answering</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card s2" href="#contact">
+      <img src="covers/the-year-i-stopped-answering.png" alt="The Year I Stopped Answering, a novel by Alma Hollis" />
+      <div class="overlay"><span>The Year I Stopped Answering</span></div>
     </a>
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/the-man-who-forgot-the-ocean.png" alt="The Man Who Forgot the Ocean, a novel by Alma Hollis" />
-      </div>
-      <div class="title serif">The Man Who Forgot the Ocean</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card s3" href="#contact">
+      <img src="covers/the-man-who-forgot-the-ocean.png" alt="The Man Who Forgot the Ocean, a novel by Alma Hollis" />
+      <div class="overlay"><span>The Man Who Forgot the Ocean</span></div>
     </a>
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/her-mothers-coat-still-hangs-in-the-closet.png" alt="Her Mother's Coat Still Hangs in the Closet, a novel by Alma Hollis" />
-      </div>
-      <div class="title serif">Her Mother's Coat Still Hangs in the Closet</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card s4" href="#contact">
+      <img src="covers/her-mothers-coat-still-hangs-in-the-closet.png" alt="Her Mother's Coat Still Hangs in the Closet, a novel by Alma Hollis" />
+      <div class="overlay"><span>Her Mother's Coat Still Hangs in the Closet</span></div>
     </a>
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/the-last-name-on-the-lease.png" alt="The Last Name on the Lease, a novel by Alma Hollis" />
-      </div>
-      <div class="title serif">The Last Name on the Lease</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card s5" href="#contact">
+      <img src="covers/the-last-name-on-the-lease.png" alt="The Last Name on the Lease, a novel by Alma Hollis" />
+      <div class="overlay"><span>The Last Name on the Lease</span></div>
     </a>
 
-    <a class="book-card" href="#contact">
-      <div class="cover-frame">
-        <img src="covers/everyone-at-this-wedding-knows-placeholder.png" alt="Everyone at This Wedding Knows, a novel by Alma Hollis, cover coming soon" />
-      </div>
-      <div class="title serif">Everyone at This Wedding Knows</div>
-      <span class="view">View Book &rarr;</span>
+    <a class="book-card s6" href="#contact">
+      <img src="covers/everyone-at-this-wedding-knows-placeholder.png" alt="Everyone at This Wedding Knows, a novel by Alma Hollis, cover coming soon" />
+      <div class="overlay"><span>Everyone at This Wedding Knows</span></div>
     </a>
 
   </div>
