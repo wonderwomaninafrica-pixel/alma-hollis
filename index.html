@@ -72,7 +72,7 @@
   nav.top ul li a.active,
   nav.top ul li a:hover { border-bottom-color: var(--gold); }
 
-  /* ---- Hero: centered logo + tagline + CTA, scattered real covers around it ---- */
+  /* ---- Hero: centered logo + tagline + CTA ---- */
   header.hero {
     position: relative;
     min-height: 100vh;
@@ -84,23 +84,6 @@
     background: var(--ink);
     overflow: hidden;
   }
-  header.hero .scatter { position: absolute; inset: 0; z-index: 1; }
-  header.hero .sc {
-    position: absolute;
-    width: 15%;
-    max-width: 190px;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    box-shadow: 10px 18px 34px rgba(0,0,0,0.55);
-    border-left: 3px solid rgba(243,239,231,0.85);
-  }
-  header.hero .sc-1 { top: 20%;  left: 3%;   transform: rotate(-9deg); }
-  header.hero .sc-2 { top: 45%;  left: 9%;   transform: rotate(6deg); }
-  header.hero .sc-3 { top: 68%;  left: 21%;  transform: rotate(-4deg); }
-  header.hero .sc-4 { top: 74%;  left: 42%;  transform: rotate(2deg); }
-  header.hero .sc-5 { top: 18%;  left: 82%;  transform: rotate(8deg); }
-  header.hero .sc-6 { top: 46%;  left: 88%;  transform: rotate(-6deg); }
-  header.hero .sc-7 { top: 70%;  left: 76%;  transform: rotate(5deg); }
 
   header.hero .copy { position: relative; z-index: 2; max-width: 640px; padding: 0 6vw; }
   header.hero .hero-logo { width: min(80vw, 560px); margin: 0 auto; }
@@ -130,10 +113,6 @@
     transition: background 0.2s, color 0.2s;
   }
   header.hero .cta:hover { background: var(--gold); color: var(--ink); }
-
-  @media (max-width: 900px) {
-    header.hero .scatter { display: none; }
-  }
 
   /* ---- Books: asymmetric collage, one feature + 2x3 grid, edge-to-edge ---- */
   section.books { padding: 100px 6vw 110px; max-width: 1200px; margin: 0 auto; }
@@ -250,15 +229,6 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="scatter" aria-hidden="true">
-    <img class="sc sc-1" src="covers/the-last-name-on-the-lease.png" alt="" />
-    <img class="sc sc-2" src="covers/everyone-at-this-wedding-knows.png" alt="" />
-    <img class="sc sc-3" src="covers/the-year-i-stopped-answering.png" alt="" />
-    <img class="sc sc-4" src="covers/her-mothers-coat-still-hangs-in-the-closet.png" alt="" />
-    <img class="sc sc-5" src="covers/a-recipe-for-leaving.png" alt="" />
-    <img class="sc sc-6" src="covers/the-man-who-forgot-the-ocean.png" alt="" />
-    <img class="sc sc-7" src="covers/the-boy-who-owed-us-nothing.png" alt="" />
-  </div>
   <div class="copy">
     <img class="hero-logo" src="logo.png" alt="Alma Hollis" />
     <p class="bio">
