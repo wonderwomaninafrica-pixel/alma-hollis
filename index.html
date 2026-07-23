@@ -54,24 +54,11 @@
 
   nav.top {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 26px 5vw;
+    padding: 30px 5vw;
     background: var(--ink);
     color: var(--cream);
-  }
-  nav.top .brand { display: flex; align-items: center; gap: 14px; }
-  nav.top .logo { height: 42px; width: auto; }
-  nav.top .name-block .name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.18em;
-  }
-  nav.top .name-block .tag {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 0.8rem;
-    color: var(--gray);
   }
   nav.top ul { display: flex; gap: 34px; list-style: none; }
   nav.top ul li a {
@@ -85,39 +72,45 @@
   nav.top ul li a.active,
   nav.top ul li a:hover { border-bottom-color: var(--gold); }
 
-  /* ---- Hero: full-bleed real cover photography ---- */
+  /* ---- Hero: centered logo + tagline + CTA, scattered real covers around it ---- */
   header.hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--cream);
-    background: #0A0E14 url('covers/the-boy-who-owed-us-nothing.png') center 30% / cover no-repeat;
+    background: var(--ink);
+    overflow: hidden;
   }
-  header.hero::before {
-    content: "";
+  header.hero .scatter { position: absolute; inset: 0; z-index: 1; }
+  header.hero .sc {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(10,14,20,0.55) 0%, rgba(10,14,20,0.35) 45%, rgba(10,14,20,0.85) 100%);
+    width: 15%;
+    max-width: 190px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    box-shadow: 10px 18px 34px rgba(0,0,0,0.55);
+    border-left: 3px solid rgba(243,239,231,0.85);
   }
+  header.hero .sc-1 { top: 20%;  left: 3%;   transform: rotate(-9deg); }
+  header.hero .sc-2 { top: 45%;  left: 9%;   transform: rotate(6deg); }
+  header.hero .sc-3 { top: 68%;  left: 21%;  transform: rotate(-4deg); }
+  header.hero .sc-4 { top: 74%;  left: 42%;  transform: rotate(2deg); }
+  header.hero .sc-5 { top: 18%;  left: 82%;  transform: rotate(8deg); }
+  header.hero .sc-6 { top: 46%;  left: 88%;  transform: rotate(-6deg); }
+  header.hero .sc-7 { top: 70%;  left: 76%;  transform: rotate(5deg); }
+
   header.hero .copy { position: relative; z-index: 2; max-width: 640px; padding: 0 6vw; }
-  header.hero h1 {
+  header.hero .hero-logo { width: min(80vw, 560px); margin: 0 auto; }
+  header.hero p.tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: clamp(2.6rem, 6vw, 4.4rem);
-    line-height: 1.15;
-    margin-bottom: 22px;
-    letter-spacing: 0.02em;
-  }
-  header.hero h1 em { font-style: italic; color: var(--gold); }
-  header.hero p.lede {
-    font-size: 1.02rem;
-    line-height: 1.7;
-    color: #D8D2E4;
-    max-width: 480px;
-    margin: 0 auto 34px;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.5;
+    color: var(--gold);
+    margin: 8px 0 30px;
   }
   header.hero .cta {
     display: inline-block;
@@ -130,6 +123,10 @@
     transition: background 0.2s, color 0.2s;
   }
   header.hero .cta:hover { background: var(--gold); color: var(--ink); }
+
+  @media (max-width: 900px) {
+    header.hero .scatter { display: none; }
+  }
 
   /* ---- About ---- */
   section.about {
@@ -289,18 +286,31 @@
 <body>
 
 <nav class="top">
-  <div class="brand">
-    <img class="logo" src="logo.png" alt="Alma Hollis" />
-  </div>
   <ul>
-    <li><a href="#top" class="active">Home</a></li>
     <li><a href="#books">Books</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#contact">Journal</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<header class="hero" id="top"></header>
+<header class="hero" id="top">
+  <div class="scatter" aria-hidden="true">
+    <img class="sc sc-1" src="covers/the-last-name-on-the-lease.png" alt="" />
+    <img class="sc sc-2" src="covers/everyone-at-this-wedding-knows.png" alt="" />
+    <img class="sc sc-3" src="covers/the-year-i-stopped-answering.png" alt="" />
+    <img class="sc sc-4" src="covers/her-mothers-coat-still-hangs-in-the-closet.png" alt="" />
+    <img class="sc sc-5" src="covers/a-recipe-for-leaving.png" alt="" />
+    <img class="sc sc-6" src="covers/the-man-who-forgot-the-ocean.png" alt="" />
+    <img class="sc sc-7" src="covers/the-boy-who-owed-us-nothing.png" alt="" />
+  </div>
+  <div class="copy">
+    <img class="hero-logo" src="logo.png" alt="Alma Hollis" />
+    <p class="tagline">Different stories.<br/>The same feeling.</p>
+    <a class="cta" href="#books">Explore the Collection</a>
+  </div>
+</header>
+
 
 <section class="about" id="about">
   <div class="visual"></div>
