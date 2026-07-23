@@ -9,8 +9,11 @@
 <link rel="canonical" href="https://www.almahollis.com/" />
 <link rel="icon" type="image/png" href="favicon.png" />
 <meta name="theme-color" content="#0A0E14" />
+<meta name="robots" content="index, follow" />
 
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Alma Hollis" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:title" content="Alma Hollis | Stories That Live in the Quiet" />
 <meta property="og:description" content="Love doesn't end when life changes. It changes with it." />
 <meta property="og:url" content="https://www.almahollis.com/" />
@@ -22,6 +25,33 @@
 <meta name="twitter:title" content="Alma Hollis | Stories That Live in the Quiet" />
 <meta name="twitter:description" content="Love doesn't end when life changes. It changes with it." />
 <meta name="twitter:image" content="https://www.almahollis.com/og-image.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alma Hollis",
+  "url": "https://www.almahollis.com/",
+  "description": "Alma Hollis writes emotionally immersive novels about the invisible ways love shapes us, exploring grief in the loss of people, futures, identities, and the versions of ourselves we leave behind.",
+  "jobTitle": "Author",
+  "image": "https://www.almahollis.com/og-image.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    { "@type": "Book", "position": 1, "name": "The Boy Who Owed Us Nothing", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/the-boy-who-owed-us-nothing.png" },
+    { "@type": "Book", "position": 2, "name": "A Recipe for Leaving", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/a-recipe-for-leaving.png" },
+    { "@type": "Book", "position": 3, "name": "The Year I Stopped Answering", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/the-year-i-stopped-answering.png" },
+    { "@type": "Book", "position": 4, "name": "The Man Who Forgot the Ocean", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/the-man-who-forgot-the-ocean.png" },
+    { "@type": "Book", "position": 5, "name": "Her Mother's Coat Still Hangs in the Closet", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/her-mothers-coat-still-hangs-in-the-closet.png" },
+    { "@type": "Book", "position": 6, "name": "The Last Name on the Lease", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/the-last-name-on-the-lease.png" },
+    { "@type": "Book", "position": 7, "name": "Everyone at This Wedding Knows", "author": { "@type": "Person", "name": "Alma Hollis" }, "image": "https://www.almahollis.com/covers/everyone-at-this-wedding-knows.png" }
+  ]
+}
+</script>
 
 <style>
   /* NOTE: Canela (the brand's licensed serif) isn't available via a free CDN.
@@ -54,6 +84,16 @@
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--gold);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   nav.top {
@@ -235,11 +275,19 @@
 
 <header class="hero" id="top">
   <div class="copy">
+    <h1 class="sr-only">Alma Hollis — Author of Emotionally Immersive Fiction</h1>
+    <p class="sr-only">
+      Alma Hollis writes emotionally immersive novels about the invisible ways
+      love shapes us, exploring grief not only in the loss of people, but the
+      loss of futures, identities, and the versions of ourselves we leave
+      behind. Explore the full collection of Alma Hollis novels below.
+    </p>
     <img class="hero-logo" src="logo.png" alt="Alma Hollis" />
   </div>
 </header>
 
 <section class="books" id="books">
+  <h2 class="sr-only">The Alma Hollis Book Collection</h2>
   <div class="head">
     <div class="eyebrow">The Collection</div>
   </div>
