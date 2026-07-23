@@ -104,6 +104,13 @@
 
   header.hero .copy { position: relative; z-index: 2; max-width: 640px; padding: 0 6vw; }
   header.hero .hero-logo { width: min(80vw, 560px); margin: 0 auto; }
+  header.hero p.bio {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: #D8D2E4;
+    max-width: 500px;
+    margin: 26px auto 22px;
+  }
   header.hero p.tagline {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -126,40 +133,6 @@
 
   @media (max-width: 900px) {
     header.hero .scatter { display: none; }
-  }
-
-  /* ---- About ---- */
-  section.about {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 60px;
-    align-items: center;
-    padding: 100px 6vw;
-    max-width: 1180px;
-    margin: 0 auto;
-  }
-  section.about .visual {
-    aspect-ratio: 4 / 5;
-    background: var(--ink) url('covers/a-recipe-for-leaving.png') center / cover no-repeat;
-    position: relative;
-  }
-  section.about h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    margin: 14px 0 18px;
-    color: var(--navy);
-  }
-  section.about p { font-size: 1rem; line-height: 1.75; color: #45505f; max-width: 480px; }
-  section.about p + p { margin-top: 16px; }
-  section.about .more {
-    display: inline-block;
-    margin-top: 22px;
-    font-size: 0.76rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--navy);
-    border-bottom: 1px solid var(--gold);
   }
 
   /* ---- Books: asymmetric collage, one feature + 2x3 grid, edge-to-edge ---- */
@@ -263,7 +236,6 @@
     nav.top { padding: 20px 5vw; }
     nav.top ul { gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
     nav.top ul li a { font-size: 0.66rem; letter-spacing: 0.08em; padding: 12px 2px; }
-    section.about { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
   }
 </style>
@@ -273,7 +245,6 @@
 <nav class="top">
   <ul>
     <li><a href="#books">Books</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#contact">Journal</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -291,30 +262,16 @@
   </div>
   <div class="copy">
     <img class="hero-logo" src="logo.png" alt="Alma Hollis" />
-    <p class="tagline">Different stories.<br/>The same feeling.</p>
-    <a class="cta" href="#books">Explore the Collection</a>
-  </div>
-</header>
-
-
-<section class="about" id="about">
-  <div class="visual"></div>
-  <div class="text">
-    <div class="eyebrow">About Alma</div>
-    <h2 class="serif">I write about what haunts us, and what heals us.</h2>
-    <p>
-      My stories explore love in its rawest forms, family in all its
-      complexity, and the truth we carry long after the page ends.
-    </p>
-    <p>
+    <p class="bio">
       Alma Hollis writes emotionally immersive novels about the invisible
       ways love shapes us, exploring grief not only in the loss of people,
       but the loss of futures, identities, and the versions of ourselves we
       leave behind.
     </p>
-    <a class="more" href="#contact">Read More About Alma &rarr;</a>
+    <p class="tagline">Different stories.<br/>The same feeling.</p>
+    <a class="cta" href="#books">Explore the Collection</a>
   </div>
-</section>
+</header>
 
 <section class="books" id="books">
   <div class="head">
