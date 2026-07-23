@@ -8,7 +8,7 @@
 <meta name="author" content="Alma Hollis" />
 <link rel="canonical" href="https://www.almahollis.com/" />
 <link rel="icon" type="image/png" href="favicon.png" />
-<meta name="theme-color" content="#150E1C" />
+<meta name="theme-color" content="#0A0E14" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Alma Hollis | Stories That Live in the Quiet" />
@@ -24,15 +24,18 @@
 <meta name="twitter:image" content="https://www.almahollis.com/og-image.png" />
 
 <style>
+  /* NOTE: Canela (the brand's licensed serif) isn't available via a free CDN.
+     Cormorant Garamond is a placeholder stand-in until licensed font files
+     are supplied, at which point swap the @import + font-family below. */
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 
   :root {
-    --ink: #150E1C;
-    --plum: #2E1E3A;
-    --plum-light: #3D2A4C;
+    --ink: #0A0E14;
+    --navy: #16202E;
     --cream: #F3EFE7;
     --gold: #C6A46A;
-    --gray: #9B92A8;
+    --gray: #8A8A8A;
+    --line: #2A3444;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,10 +47,13 @@
 
   .eyebrow {
     font-size: 0.72rem;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--gold);
   }
+
+  /* ---- Moth mark, reused identically in nav + footer ---- */
+  .moth { width: 26px; height: 18px; flex-shrink: 0; }
 
   nav.top {
     display: flex;
@@ -58,11 +64,10 @@
     color: var(--cream);
   }
   nav.top .brand { display: flex; align-items: center; gap: 14px; }
-  nav.top .mark { width: 28px; height: 28px; flex-shrink: 0; }
   nav.top .name-block .name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
   }
   nav.top .name-block .tag {
     font-family: 'Cormorant Garamond', serif;
@@ -72,8 +77,8 @@
   }
   nav.top ul { display: flex; gap: 34px; list-style: none; }
   nav.top ul li a {
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--cream);
     padding-bottom: 4px;
@@ -81,105 +86,121 @@
   }
   nav.top ul li a.active,
   nav.top ul li a:hover { border-bottom-color: var(--gold); }
-  nav.top .icons { display: flex; gap: 16px; }
-  nav.top .icons a { opacity: 0.85; }
 
+  /* ---- Hero: full-bleed real cover photography ---- */
   header.hero {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 640px;
-    background: var(--ink);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: var(--cream);
-    overflow: hidden;
+    background: #0A0E14 url('covers/the-boy-who-owed-us-nothing.png') center 30% / cover no-repeat;
   }
-  header.hero .copy { display: flex; flex-direction: column; justify-content: center; padding: 0 6vw; z-index: 2; }
+  header.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,14,20,0.55) 0%, rgba(10,14,20,0.35) 45%, rgba(10,14,20,0.85) 100%);
+  }
+  header.hero .copy { position: relative; z-index: 2; max-width: 640px; padding: 0 6vw; }
+  header.hero .moth { margin: 0 auto 18px; }
   header.hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
     line-height: 1.15;
-    margin: 20px 0 22px;
+    margin-bottom: 22px;
+    letter-spacing: 0.02em;
   }
-  header.hero h1 em { color: var(--gold); font-style: italic; }
-  header.hero .rule { display: flex; align-items: center; gap: 10px; margin: 6px 0 26px; }
-  header.hero .rule span.line { width: 60px; height: 1px; background: var(--gold); }
-  header.hero p.lede { max-width: 420px; font-size: 1rem; line-height: 1.7; color: #D8D2E4; margin-bottom: 32px; }
+  header.hero h1 em { font-style: italic; color: var(--gold); }
+  header.hero p.lede {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #D8D2E4;
+    max-width: 480px;
+    margin: 0 auto 34px;
+  }
   header.hero .cta {
     display: inline-block;
-    align-self: flex-start;
-    background: var(--plum-light);
     border: 1px solid var(--gold);
     color: var(--gold);
-    padding: 14px 30px;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
+    padding: 14px 34px;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
   }
   header.hero .cta:hover { background: var(--gold); color: var(--ink); }
-  header.hero .art { position: relative; background: radial-gradient(circle at 60% 45%, #4a3560 0%, var(--plum) 55%, var(--ink) 100%); }
-  header.hero .art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 
+  /* ---- About ---- */
   section.about {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.85fr 1.15fr;
     gap: 60px;
     align-items: center;
-    padding: 90px 6vw;
-    max-width: 1200px;
+    padding: 100px 6vw;
+    max-width: 1180px;
     margin: 0 auto;
   }
   section.about .visual {
     aspect-ratio: 4 / 5;
-    border-radius: 2px;
-    background: linear-gradient(155deg, var(--plum) 0%, var(--ink) 100%);
+    background: var(--ink) url('covers/a-recipe-for-leaving.png') center / cover no-repeat;
     position: relative;
-    overflow: hidden;
   }
-  section.about .visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   section.about h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     margin: 14px 0 18px;
+    color: var(--navy);
   }
-  section.about p { font-size: 1rem; line-height: 1.75; color: #3a2f4a; max-width: 480px; }
+  section.about p { font-size: 1rem; line-height: 1.75; color: #45505f; max-width: 480px; }
   section.about p + p { margin-top: 16px; }
   section.about .more {
     display: inline-block;
     margin-top: 22px;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--plum);
+    color: var(--navy);
     border-bottom: 1px solid var(--gold);
   }
 
-  section.books { padding: 20px 6vw 100px; max-width: 1200px; margin: 0 auto; }
-  section.books .head { margin-bottom: 34px; }
+  /* ---- Books ---- */
+  section.books { padding: 20px 6vw 110px; max-width: 1180px; margin: 0 auto; }
+  section.books .head { margin-bottom: 40px; text-align: center; }
   section.books h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     margin-top: 10px;
+    color: var(--navy);
   }
-  .book-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-  .book-card img {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    box-shadow: 0 18px 30px -14px rgba(21, 14, 28, 0.45);
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 34px;
   }
-  .book-card .title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; margin-top: 16px; line-height: 1.3; }
+  .book-card { display: block; }
+  .book-card .cover-frame {
+    overflow: hidden;
+    box-shadow: 0 22px 34px -16px rgba(10, 14, 20, 0.5);
+  }
+  .book-card img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; transition: transform 0.4s ease; }
+  .book-card:hover img { transform: scale(1.03); }
+  .book-card .title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; margin-top: 16px; line-height: 1.3; color: var(--navy); }
   .book-card .view {
-    font-size: 0.74rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--plum);
+    color: var(--gray);
     margin-top: 6px;
     display: inline-block;
   }
 
+  /* ---- Newsletter / Contact footer ---- */
   footer.site { background: var(--ink); color: var(--cream); padding: 70px 6vw 30px; }
   .footer-top {
     display: grid;
@@ -187,7 +208,7 @@
     gap: 40px;
     align-items: start;
     padding-bottom: 50px;
-    border-bottom: 1px solid #3a2f4a;
+    border-bottom: 1px solid var(--line);
   }
   .footer-top h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.5rem; margin: 10px 0 12px; }
   .footer-top p { font-size: 0.92rem; line-height: 1.6; color: var(--gray); max-width: 360px; }
@@ -196,7 +217,7 @@
   form.contact input,
   form.contact textarea {
     background: transparent;
-    border: 1px solid #4a3d5c;
+    border: 1px solid var(--line);
     color: var(--cream);
     padding: 13px 16px;
     font-family: 'Inter', sans-serif;
@@ -210,8 +231,8 @@
     color: var(--ink);
     border: none;
     padding: 13px 30px;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     cursor: pointer;
   }
@@ -220,15 +241,12 @@
 
   .footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
   .footer-brand .signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.6rem; color: var(--gold); }
-  .footer-brand .icons { display: flex; gap: 14px; }
 
   .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 24px; font-size: 0.78rem; color: var(--gray); }
   .footer-bottom .links { display: flex; gap: 22px; }
 
   @media (max-width: 900px) {
     nav.top ul { display: none; }
-    header.hero { grid-template-columns: 1fr; }
-    header.hero .art { min-height: 280px; }
     section.about { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-top { grid-template-columns: 1fr; }
@@ -239,18 +257,11 @@
 
 <nav class="top">
   <div class="brand">
-    <svg class="mark" viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="3" fill="#C6A46A"/>
-      <g stroke="#C6A46A" stroke-width="1.4">
-        <line x1="20" y1="20" x2="20" y2="6"/>
-        <line x1="20" y1="20" x2="20" y2="34"/>
-        <line x1="20" y1="20" x2="6" y2="20"/>
-        <line x1="20" y1="20" x2="34" y2="20"/>
-        <line x1="20" y1="20" x2="10" y2="10"/>
-        <line x1="20" y1="20" x2="30" y2="10"/>
-        <line x1="20" y1="20" x2="10" y2="30"/>
-        <line x1="20" y1="20" x2="30" y2="30"/>
-      </g>
+    <svg class="moth" viewBox="0 0 100 70" fill="none">
+      <path d="M50 12 C 50 30, 40 34, 30 30 C 12 22, 4 30, 8 46 C 12 60, 30 58, 42 44 C 46 40, 48 36, 50 30 C 52 36, 54 40, 58 44 C 70 58, 88 60, 92 46 C 96 30, 88 22, 70 30 C 60 34, 50 30, 50 12 Z" stroke="#C6A46A" stroke-width="1.6"/>
+      <line x1="50" y1="12" x2="50" y2="48" stroke="#C6A46A" stroke-width="1.6"/>
+      <circle cx="46" cy="10" r="1.6" fill="#C6A46A"/>
+      <circle cx="54" cy="10" r="1.6" fill="#C6A46A"/>
     </svg>
     <div class="name-block">
       <div class="name serif">ALMA HOLLIS</div>
@@ -263,51 +274,26 @@
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="icons" aria-hidden="true">
-    <a href="#contact">&#9993;</a>
-  </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="copy">
+    <svg class="moth" viewBox="0 0 100 70" fill="none">
+      <path d="M50 12 C 50 30, 40 34, 30 30 C 12 22, 4 30, 8 46 C 12 60, 30 58, 42 44 C 46 40, 48 36, 50 30 C 52 36, 54 40, 58 44 C 70 58, 88 60, 92 46 C 96 30, 88 22, 70 30 C 60 34, 50 30, 50 12 Z" stroke="#C6A46A" stroke-width="1.6"/>
+      <line x1="50" y1="12" x2="50" y2="48" stroke="#C6A46A" stroke-width="1.6"/>
+    </svg>
     <div class="eyebrow">Emotionally Immersive Fiction</div>
     <h1 class="serif">Stories that<br/>live in the <em>quiet</em>.</h1>
-    <div class="rule"><span class="line"></span></div>
     <p class="lede">
       Dark, emotional, and deeply human fiction about the things we don't say,
       and the people who change everything.
     </p>
     <a class="cta" href="#books">Explore the Books</a>
   </div>
-  <div class="art">
-    <svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMid slice">
-      <g stroke="#C6A46A" stroke-width="1" opacity="0.55" fill="none">
-        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(0 300 320)"/>
-        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(30 300 320)"/>
-        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(60 300 320)"/>
-        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(90 300 320)"/>
-        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(120 300 320)"/>
-        <ellipse cx="300" cy="320" rx="120" ry="34" transform="rotate(150 300 320)"/>
-      </g>
-      <circle cx="300" cy="320" r="16" fill="#C6A46A" opacity="0.85"/>
-      <line x1="300" y1="336" x2="300" y2="560" stroke="#8A7A9C" stroke-width="2" opacity="0.5"/>
-    </svg>
-  </div>
 </header>
 
 <section class="about" id="about">
-  <div class="visual">
-    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-      <g stroke="#C6A46A" stroke-width="1" opacity="0.5" fill="none">
-        <ellipse cx="200" cy="230" rx="90" ry="26"/>
-        <ellipse cx="200" cy="230" rx="90" ry="26" transform="rotate(45 200 230)"/>
-        <ellipse cx="200" cy="230" rx="90" ry="26" transform="rotate(90 200 230)"/>
-        <ellipse cx="200" cy="230" rx="90" ry="26" transform="rotate(135 200 230)"/>
-      </g>
-      <circle cx="200" cy="230" r="12" fill="#C6A46A" opacity="0.8"/>
-      <line x1="200" y1="242" x2="200" y2="420" stroke="#8A7A9C" stroke-width="2" opacity="0.5"/>
-    </svg>
-  </div>
+  <div class="visual"></div>
   <div class="text">
     <div class="eyebrow">About Alma</div>
     <h2 class="serif">I write about what haunts us, and what heals us.</h2>
@@ -327,30 +313,67 @@
 
 <section class="books" id="books">
   <div class="head">
-    <div class="eyebrow">Featured Books</div>
-    <h2 class="serif">New &amp; Upcoming Titles</h2>
+    <div class="eyebrow">The Collection</div>
+    <h2 class="serif">Every Story, Unmistakably Alma Hollis</h2>
   </div>
   <div class="book-grid">
+
     <a class="book-card" href="#contact">
-      <img src="covers/the-boy-who-owed-us-nothing.png" alt="The Boy Who Owed Us Nothing, a novel by Alma Hollis" />
-      <div class="title serif">The Boy Who<br/>Owed Us Nothing</div>
+      <div class="cover-frame">
+        <img src="covers/the-boy-who-owed-us-nothing.png" alt="The Boy Who Owed Us Nothing, a novel by Alma Hollis" />
+      </div>
+      <div class="title serif">The Boy Who Owed Us Nothing</div>
       <span class="view">View Book &rarr;</span>
     </a>
+
     <a class="book-card" href="#contact">
-      <img src="covers/a-recipe-for-leaving.png" alt="A Recipe for Leaving, a novel by Alma Hollis" />
-      <div class="title serif">A Recipe<br/>for Leaving</div>
+      <div class="cover-frame">
+        <img src="covers/a-recipe-for-leaving.png" alt="A Recipe for Leaving, a novel by Alma Hollis" />
+      </div>
+      <div class="title serif">A Recipe for Leaving</div>
       <span class="view">View Book &rarr;</span>
     </a>
+
     <a class="book-card" href="#contact">
-      <img src="covers/the-year-i-stopped-answering.png" alt="The Year I Stopped Answering, a novel by Alma Hollis" />
-      <div class="title serif">The Year I Stopped<br/>Answering</div>
+      <div class="cover-frame">
+        <img src="covers/the-year-i-stopped-answering.png" alt="The Year I Stopped Answering, a novel by Alma Hollis" />
+      </div>
+      <div class="title serif">The Year I Stopped Answering</div>
       <span class="view">View Book &rarr;</span>
     </a>
+
     <a class="book-card" href="#contact">
-      <img src="covers/the-man-who-forgot-the-ocean.png" alt="The Man Who Forgot the Ocean, a novel by Alma Hollis" />
-      <div class="title serif">The Man Who<br/>Forgot the Ocean</div>
+      <div class="cover-frame">
+        <img src="covers/the-man-who-forgot-the-ocean.png" alt="The Man Who Forgot the Ocean, a novel by Alma Hollis" />
+      </div>
+      <div class="title serif">The Man Who Forgot the Ocean</div>
       <span class="view">View Book &rarr;</span>
     </a>
+
+    <a class="book-card" href="#contact">
+      <div class="cover-frame">
+        <img src="covers/her-mothers-coat-still-hangs-in-the-closet.png" alt="Her Mother's Coat Still Hangs in the Closet, a novel by Alma Hollis" />
+      </div>
+      <div class="title serif">Her Mother's Coat Still Hangs in the Closet</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+
+    <a class="book-card" href="#contact">
+      <div class="cover-frame">
+        <img src="covers/the-last-name-on-the-lease.png" alt="The Last Name on the Lease, a novel by Alma Hollis" />
+      </div>
+      <div class="title serif">The Last Name on the Lease</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+
+    <a class="book-card" href="#contact">
+      <div class="cover-frame">
+        <img src="covers/everyone-at-this-wedding-knows-placeholder.png" alt="Everyone at This Wedding Knows, a novel by Alma Hollis, cover coming soon" />
+      </div>
+      <div class="title serif">Everyone at This Wedding Knows</div>
+      <span class="view">View Book &rarr;</span>
+    </a>
+
   </div>
 </section>
 
@@ -375,10 +398,11 @@
     </form>
 
     <div class="footer-brand">
+      <svg class="moth" viewBox="0 0 100 70" fill="none">
+        <path d="M50 12 C 50 30, 40 34, 30 30 C 12 22, 4 30, 8 46 C 12 60, 30 58, 42 44 C 46 40, 48 36, 50 30 C 52 36, 54 40, 58 44 C 70 58, 88 60, 92 46 C 96 30, 88 22, 70 30 C 60 34, 50 30, 50 12 Z" stroke="#C6A46A" stroke-width="1.6"/>
+        <line x1="50" y1="12" x2="50" y2="48" stroke="#C6A46A" stroke-width="1.6"/>
+      </svg>
       <div class="signature">Alma Hollis</div>
-      <div class="icons" aria-hidden="true">
-        <span>&#9993;</span>
-      </div>
     </div>
   </div>
 
@@ -414,7 +438,7 @@
         body: JSON.stringify({ name, email, message, subscribe }),
       });
       if (!resp.ok) throw new Error('Request failed');
-      note.textContent = 'Thank you. You\'re on the list.';
+      note.textContent = "Thank you. You're on the list.";
       form.reset();
     } catch (err) {
       note.textContent = 'Something went wrong. Please try again shortly.';
