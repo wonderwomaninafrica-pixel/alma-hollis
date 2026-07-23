@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alma Hollis | Emotionally Immersive Fiction</title>
+<meta name="description" content="Alma Hollis writes emotionally immersive novels about the invisible ways love shapes us. New titles coming soon." />
+<meta name="author" content="Alma Hollis" />
+<link rel="canonical" href="https://www.almahollis.com/" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta name="theme-color" content="#F3EFE7" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Alma Hollis | Emotionally Immersive Fiction" />
+<meta property="og:description" content="Love doesn't end when life changes. It changes with it." />
+<meta property="og:url" content="https://www.almahollis.com/" />
+<meta property="og:image" content="https://www.almahollis.com/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Alma Hollis | Emotionally Immersive Fiction" />
+<meta name="twitter:description" content="Love doesn't end when life changes. It changes with it." />
+<meta name="twitter:image" content="https://www.almahollis.com/og-image.png" />
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --cream: #F3EFE7;
+    --navy: #1A263A;
+    --gold: #C6A46A;
+    --gray: #6E6E6E;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  nav.top {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 6vw;
+    background: linear-gradient(to bottom, rgba(243,239,231,0.95), rgba(243,239,231,0));
+  }
+  nav.top .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
+  }
+  nav.top a.cta {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--navy);
+    padding: 10px 22px;
+    text-decoration: none;
+  }
+
+  header.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 6vw;
+  }
+  header.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    letter-spacing: 0.06em;
+    margin: 18px 0 26px;
+  }
+  header.hero p.tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    color: var(--gray);
+    max-width: 640px;
+  }
+
+  section {
+    padding: 110px 6vw;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom: 28px;
+  }
+  section p {
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: #33405a;
+    max-width: 640px;
+  }
+  section p + p { margin-top: 18px; }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 36px auto;
+  }
+
+  .coming-soon {
+    text-align: center;
+  }
+  .coming-soon .eyebrow { margin-bottom: 14px; }
+  .coming-soon p {
+    margin: 0 auto;
+  }
+
+  form.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
+    margin-top: 20px;
+  }
+  form.contact input,
+  form.contact textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #b9b2a2;
+    padding: 12px 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+  form.contact input:focus,
+  form.contact textarea:focus { outline: none; border-bottom-color: var(--navy); }
+  form.contact textarea { resize: vertical; min-height: 100px; }
+  form.contact label.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--gray);
+  }
+  form.contact button {
+    align-self: flex-start;
+    margin-top: 6px;
+    background: var(--navy);
+    color: var(--cream);
+    border: none;
+    padding: 13px 30px;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  form.contact button:hover { background: #101a29; }
+  .form-note {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: 14px;
+    min-height: 1.2em;
+  }
+
+  footer {
+    text-align: center;
+    padding: 50px 6vw 60px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="name serif">ALMA HOLLIS</div>
+  <a class="cta" href="#contact">Get in touch</a>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Emotionally Immersive Fiction</div>
+  <h1 class="serif">Alma Hollis</h1>
+  <p class="tagline">Love doesn't end when life changes. It changes with it.</p>
+</header>
+
+<section class="coming-soon">
+  <div class="eyebrow">New Titles</div>
+  <h2 class="serif">Coming Soon</h2>
+  <div class="divider"></div>
+  <p>
+    Alma Hollis writes emotionally immersive novels about the invisible ways
+    love shapes us. Her stories explore grief in all its forms, not only the
+    loss of people, but the loss of futures, identities, and the versions of
+    ourselves we leave behind.
+  </p>
+</section>
+
+<section id="about">
+  <div class="eyebrow">About</div>
+  <h2 class="serif">The Author</h2>
+  <p>
+    With luminous prose, quiet sensuality, and unforgettable emotional
+    intimacy, Alma Hollis's novels remind readers that love is rarely
+    measured by what we keep, but by what we are willing to carry.
+  </p>
+  <p>
+    A reader doesn't simply read an Alma Hollis novel. She feels it.
+  </p>
+</section>
+
+<section id="contact">
+  <div class="eyebrow">Stay in Touch</div>
+  <h2 class="serif">Contact &amp; Updates</h2>
+  <p>Send a note, or sign up to hear about new releases first.</p>
+
+  <form class="contact" id="contactForm">
+    <input type="text" name="name" placeholder="Name" />
+    <input type="email" name="email" placeholder="Email" required />
+    <textarea name="message" placeholder="Message" required></textarea>
+    <label class="checkbox">
+      <input type="checkbox" name="subscribe" />
+      Send me release updates
+    </label>
+    <button type="submit">Send</button>
+    <div class="form-note" id="formNote"></div>
+  </form>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Alma Hollis. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    const subscribe = form.subscribe.checked;
+
+    note.textContent = 'Sending...';
+
+    try {
+      const resp = await fetch('https://alma-hollis-contact-api.vercel.app/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, subscribe }),
+      });
+      if (!resp.ok) throw new Error('Request failed');
+      note.textContent = 'Thank you. Your message has been sent.';
+      form.reset();
+    } catch (err) {
+      note.textContent = 'Something went wrong. Please try again shortly.';
+    }
+  });
+</script>
+
+</body>
+</html>
