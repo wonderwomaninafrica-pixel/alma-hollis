@@ -333,8 +333,7 @@
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
 
-  // TODO: replace with the deployed Google Apps Script Web App URL
-  const SIGNUP_ENDPOINT = 'PASTE_APPS_SCRIPT_URL_HERE';
+  const SIGNUP_ENDPOINT = 'https://formspree.io/f/xykrnywo';
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -345,7 +344,7 @@
     try {
       const resp = await fetch(SIGNUP_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ email }),
       });
       if (!resp.ok) throw new Error('Request failed');
