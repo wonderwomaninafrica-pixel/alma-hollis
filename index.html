@@ -30,8 +30,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 
   :root {
-    --ink: #0A0E14;
-    --navy: #16202E;
+    --ink: #111C24;
+    --navy: #111C24;
+    --dark-green: #293228;
+    --maroon: #271114;
+    --sage: #5E6158;
+    --taupe: #786C61;
     --cream: #F3EFE7;
     --gold: #C6A46A;
     --gray: #8A8A8A;
@@ -149,7 +153,7 @@
     opacity: 0;
     transition: opacity 0.3s ease, background 0.3s ease;
   }
-  .book-card:hover .overlay { opacity: 1; background: rgba(10, 14, 20, 0.32); }
+  .book-card:hover .overlay { opacity: 1; background: rgba(39, 17, 20, 0.55); }
   .book-card .overlay span {
     font-size: 0.72rem;
     letter-spacing: 0.16em;
@@ -167,14 +171,14 @@
   }
 
   /* ---- Newsletter / Contact footer ---- */
-  footer.site { background: var(--ink); color: var(--cream); padding: 70px 6vw 30px; }
+  footer.site { background: var(--dark-green); color: var(--cream); padding: 70px 6vw 30px; }
   .footer-top {
     display: grid;
     grid-template-columns: 1.1fr 1.4fr 0.7fr;
     gap: 40px;
     align-items: start;
     padding-bottom: 50px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--sage);
   }
   .footer-top h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.5rem; margin: 10px 0 12px; }
   .footer-top p { font-size: 0.92rem; line-height: 1.6; color: var(--gray); max-width: 360px; }
@@ -183,7 +187,7 @@
   form.contact input,
   form.contact textarea {
     background: transparent;
-    border: 1px solid var(--line);
+    border: 1px solid #3d4a3c;
     color: var(--cream);
     padding: 13px 16px;
     font-family: 'Inter', sans-serif;
