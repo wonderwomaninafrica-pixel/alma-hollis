@@ -276,9 +276,10 @@
   .footer-bottom .links { display: flex; gap: 22px; }
 
   @media (max-width: 900px) {
-    nav.top ul { display: none; }
+    nav.top { padding: 20px 5vw; }
+    nav.top ul { gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    nav.top ul li a { font-size: 0.66rem; letter-spacing: 0.08em; padding: 12px 2px; }
     section.about { grid-template-columns: 1fr; }
-    .book-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-top { grid-template-columns: 1fr; }
   }
 </style>
